@@ -1,0 +1,207 @@
+/* Nav trigger — a small accent-tinted pill, distinct from .btnGhost/.btnSolid
+   in SiteChrome.module.css (this reads as "propose", not "log in/out"). */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 7px 13px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.trigger:hover {
+  background: color-mix(in srgb, var(--accent-soft) 60%, var(--accent) 12%);
+}
+.trigger svg {
+  flex: none;
+}
+@media (min-width: 640px) {
+  .trigger {
+    padding: 9px 16px;
+    font-size: 13.5px;
+  }
+}
+
+/* Popin shell/fields below are the same design as FeedbackButton's — same
+   overlay, .popin card, textarea, button styles — so the two forms feel like
+   one system. Kept as a separate module (rather than sharing the file)
+   since FeedbackButton is scoped to a subject page and this is global. */
+.popinOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(20, 17, 12, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.popin {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-pop);
+  padding: 24px 22px 22px;
+}
+.popin h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-right: 20px;
+}
+.popinClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink-faint);
+}
+.popinClose:hover {
+  color: var(--ink);
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.titleInput {
+  width: 100%;
+  appearance: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 14.5px;
+  font-family: inherit;
+  background: var(--paper);
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.titleInput::placeholder {
+  color: var(--ink-faint);
+}
+.titleInput:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  appearance: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-family: inherit;
+  line-height: 1.55;
+  background: var(--paper);
+  color: var(--ink);
+}
+.textarea::placeholder {
+  color: var(--ink-faint);
+}
+.textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Honeypot: a field real users never see (off-screen, not display:none —
+   some bots skip display:none/visibility:hidden fields but still fill
+   off-screen ones, so this stays a meaningful signal) or reach by keyboard
+   (tabIndex -1, aria-hidden). Any value in it means a script filled every
+   input on the form — the server action rejects silently on that. */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+.counter {
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.popinActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.popinBtn {
+  flex: 1;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-strong);
+  color: var(--ink);
+  text-decoration: none;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+}
+.popinBtn:hover {
+  background: var(--surface-sunken);
+}
+.popinBtnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+.popinBtnPrimary:hover:not(:disabled) {
+  background: var(--accent-ink);
+  border-color: var(--accent-ink);
+}
+.popinBtnPrimary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.thankYouIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px auto 16px;
+}
+.center {
+  text-align: center;
+}
+.thankYouBody {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 4px;
+}

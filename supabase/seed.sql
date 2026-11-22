@@ -1,0 +1,4 @@
+-- Intentionally empty: the demo dataset (9 example subjects) now lives in
+-- migrations/20260704130000_seed_example_subjects.sql so it's also present
+-- on the linked remote project, not just local dev. Add local-only fixtures
+-- here if/when you need data that should never reach a shared database.

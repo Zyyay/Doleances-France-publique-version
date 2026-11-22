@@ -1,0 +1,30 @@
+{
+  "ideaId": "921f6744-2f5e-42a8-b438-36fc208bcc73",
+  "arguments": [
+    {
+      "title": "Couper les réseaux pilotés depuis la prison",
+      "description": "Bénéfice : En 2024, 80 000 portables ont été saisis en prison, autant que de détenus, et la criminalité organisée représente 34,9 % des détenus ; or seules 22 prisons ont des brouilleurs.\n\nLimites :\n- Selon le Sénat, les brouilleurs actuels restent imparfaits.",
+      "sources": [
+        { "title": "80 000 téléphones portables saisis en prison en 2024", "url": "https://www.lyoncapitale.fr/?p=510393", "publisher": "Lyon Capitale" },
+        { "title": "Avis budgétaire 2026 : administration pénitentiaire", "url": "https://www.senat.fr/rap/a25-145-6/a25-145-6-syn.pdf", "publisher": "Sénat" },
+        { "title": "Opération « zéro portable en prison » (21 novembre 2025)", "url": "https://www.justice.gouv.fr/sites/default/files/2025-11/CP%20-%20GD%20lance%20l%27op%C3%A9ration%20z%C3%A9ro%20portable%20en%20prison%20-%20MA%20Dijon%20-%2021.11.2025.pdf", "publisher": "Ministère de la Justice" }
+      ]
+    },
+    {
+      "title": "Permettre un sevrage pendant la peine",
+      "description": "Bénéfice : 1 détenu sur 2 a fumé du cannabis en détention, et deux tiers des détenus hommes ont un trouble psychiatrique ou lié aux substances ; tarir l'entrée de drogue permet un sevrage pendant la peine.\n\nLimites :\n- Seules 440 places d'hospitalisation psychiatrique sont dédiées aux détenus.",
+      "sources": [
+        { "title": "Les consommations de drogues en prison : enquête ESSPRI 2023", "url": "https://www.ofdt.fr/publication/2024/les-consommations-de-drogues-en-prison-resultat-de-l-enquete-esspri-2023-2001", "publisher": "OFDT" },
+        { "title": "Avis budgétaire 2026 : administration pénitentiaire", "url": "https://www.senat.fr/rap/a25-145-6/a25-145-6-syn.pdf", "publisher": "Sénat" }
+      ]
+    },
+    {
+      "title": "Préserver les activités qui préparent la sortie",
+      "description": "Bénéfice : Cibler les seuls loisirs non autorisés préserve lecture, sport et réinsertion, soutenus par 93 %, 77 % et 72 % des Français (Ifop, 2018).\n\nLimites :\n- En mai 2025, le Conseil d'État a annulé l'interdiction générale des activités « ludiques ».",
+      "sources": [
+        { "title": "Les Français et la prison (2018)", "url": "https://ifop.com/publication/les-francais-et-la-prison", "publisher": "Ifop" },
+        { "title": "Prisons : les activités ludiques ne peuvent être interdites (2025)", "url": "https://conseil-etat.fr/actualites/prisons-les-activites-de-nature-a-porter-atteinte-au-respect-du-aux-victimes-peuvent-etre-legalement-interdites-mais-pas-les-activites-ludiques", "publisher": "Conseil d'État" }
+      ]
+    }
+  ]
+}

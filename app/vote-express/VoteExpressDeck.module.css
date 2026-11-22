@@ -1,0 +1,418 @@
+.stage {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.topBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+.brand svg {
+  flex: none;
+  color: #facc15;
+}
+.counter {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  width: 100%;
+}
+
+.sideBtn {
+  appearance: none;
+  cursor: pointer;
+  flex: none;
+  border-radius: 50%;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+}
+.sideBtn:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+.contreBtn {
+  background: var(--surface);
+  border: 2px solid var(--contre);
+  color: var(--contre);
+}
+.pourBtn {
+  background: var(--pour);
+  border: 2px solid var(--pour);
+  color: var(--surface);
+}
+
+.cardCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 1 1 480px;
+  min-width: 0;
+  max-width: 480px;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 4px;
+  border-radius: 100px;
+  background: var(--track);
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: var(--pal-violet);
+  border-radius: 100px;
+  transition: width 0.2s ease;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+.card:active {
+  cursor: grabbing;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stamp {
+  position: absolute;
+  top: 20px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 2.5px solid;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: opacity 0.1s ease;
+}
+.stampPour {
+  right: 20px;
+  color: var(--pour);
+  border-color: var(--pour);
+  transform: rotate(-8deg);
+}
+.stampContre {
+  left: 20px;
+  color: var(--contre);
+  border-color: var(--contre);
+  transform: rotate(8deg);
+}
+
+.catChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px 7px 8px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.questionWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.question {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+
+.moreLink {
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 10px 24px 4px;
+  margin: -10px -24px -4px;
+}
+
+.skipRow {
+  appearance: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.skipRow:hover {
+  color: var(--ink-soft);
+}
+
+.hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 640px) {
+  .hint {
+    display: none;
+  }
+  .row {
+    gap: 14px;
+  }
+  .sideBtn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* ---- Login popin (mirrors sujets/[slug]/VoteCard.module.css) ---- */
+.popinOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(20, 17, 12, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.popin {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-pop);
+  padding: 24px 22px 22px;
+}
+.popin h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding-right: 20px;
+}
+.popin p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.popinClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink-faint);
+}
+.popinClose:hover {
+  color: var(--ink);
+}
+.popinActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.popinBtn {
+  appearance: none;
+  cursor: pointer;
+  background: var(--surface);
+  flex: 1;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-strong);
+  color: var(--ink);
+  text-decoration: none;
+}
+.popinBtn:hover {
+  background: var(--surface-sunken);
+}
+.popinBtnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+.popinBtnPrimary:hover {
+  background: var(--accent-ink);
+  border-color: var(--accent-ink);
+}
+
+/* ---- End / empty screens ---- */
+.endScreen,
+.emptyState {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 40px 24px;
+}
+.endBrand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.endBrandMark {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  object-fit: contain;
+  align-self: center;
+}
+.endTitle,
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.endSub {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.recapCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-sunken);
+  border-radius: 18px;
+  padding: 20px 26px;
+  margin-top: 6px;
+  width: 100%;
+  max-width: 320px;
+}
+.recapLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.recapDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.recapDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex: none;
+}
+.recapDotPour {
+  background: var(--pour);
+}
+.recapDotContre {
+  background: var(--contre);
+}
+
+.endActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  width: 100%;
+}
+.shareBtn {
+  appearance: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  max-width: 280px;
+  background: var(--pal-violet);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 100px;
+}
+.shareBtn:hover {
+  background: var(--accent-ink);
+}
+.homeLink {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

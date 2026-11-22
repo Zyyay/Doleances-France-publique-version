@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+
+  /* Brand palette (coolors.co). Every token below is one of these 5 hex, or
+     a plain precomputed hex/rgba derived from it (tinted/shaded/blended) —
+     see DESIGN.md for the exact color-mix() formula each one comes from and
+     WHY THIS IS HARDCODED, NOT color-mix() (short version: color-mix() was
+     silently a no-op in testing — total site stayed white/gray/black — so
+     this is deliberately static, not a stylistic choice). If you touch a
+     value here, recompute it (see DESIGN.md for the script) rather than
+     switching back to a live color-mix() expression. */
+  --pal-tomato: #bb4430;
+  --pal-indigo: #38405f;
+  --pal-icyblue: #add9f4;
+  --pal-teagreen: #c6dea6;
+  --pal-cyan: #468c98;
+
+  /* 2nd palette, layered on top of the 5 above for chrome only (page bg,
+     text, headings, buttons/links, nav, header bands). Category colors and
+     pour/contre still derive from the 5 pal-* hues above — untouched. */
+  --pal-navy: #1e293b; /* Dominante / Primaire */
+  --pal-violet: #4f46e5; /* Accent / Action */
+
+  --paper: #f8fafc; /* Fond Secondaire, direct */
+  --surface: #ffffff; /* Fond Principal, direct */
+  --surface-sunken: #ebedf0; /* color-mix(navy 6%, paper) */
+  --ink: #1e293b; /* = pal-navy */
+  --ink-soft: #5f6875; /* color-mix(ink 70%, paper 30%) */
+  --ink-faint: #6b7280; /* was #9ca2ab (~2.5:1 on --paper/--surface, fails WCAG AA's 4.5:1) — darkened to ~4.6:1 */
+  --border: rgba(30, 41, 59, 0.18); /* navy @ 18% */
+  --border-strong: rgba(30, 41, 59, 0.32); /* navy @ 32% */
+  /* Headings only — regular body text stays --ink. Same hex as --ink for
+     now (both are pal-navy); kept as a separate token in case they diverge
+     again later. */
+  --heading: #1e293b;
+
+  --accent: #4f46e5; /* = pal-violet */
+  --accent-ink: #3f38b7; /* color-mix(violet 80%, black) */
+  --accent-soft: rgba(79, 70, 229, 0.12);
+
+  --pour: #468c98;
+  --contre: #bb4430;
+  --contre-soft: rgba(187, 68, 48, 0.1);
+  --track: #e7e9ee;
+
+  --cat-econ: #2563eb; /* Bleu Roi */
+  --cat-secu: #ea580c; /* Orange Vif */
+  --cat-just: #9c46b9; /* Mauve/Plum — desaturated from #c026d3 (Fuchsia), too vivid */
+  --cat-trav: #16a34a; /* Vert Tonique */
+  --cat-sante: #c84158; /* Rosé/Terracotta — desaturated from #e11d48 (Rouge Rosé), too vivid */
+  --cat-intl: #0284c7; /* Bleu Cyan */
+  --cat-edu: #ca8a04; /* Jaune Soleil */
+  --cat-eco: #0d9488; /* Turquoise / Menthe */
+  --cat-culture: #d97706; /* Ambre */
+  --cat-soc: #475569; /* Ardoise */
+
+  --shadow-card: 0 1px 2px rgba(27, 31, 42, 0.04), 0 8px 20px -12px rgba(27, 31, 42, 0.18);
+  --shadow-pop: 0 4px 10px rgba(27, 31, 42, 0.06), 0 16px 32px -16px rgba(27, 31, 42, 0.24);
+
+  --font-display: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: var(--font-google-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+
+  /* "Band" — the solid color-block surface used for page headers/heroes
+     (see DESIGN.md's color palette update). Every page's header band pulls
+     from these tokens instead of hardcoding a palette hue directly, so
+     testing a different combo is a one-place edit, here — never redefine
+     these locally in a page's own CSS module. */
+  --band-bg: #1e293b; /* = pal-navy */
+  --band-heading: #ffffff;
+  --band-eyebrow-bg: #4f46e5; /* = pal-violet */
+  --band-eyebrow-ink: #ffffff;
+  --band-sub: rgba(255, 255, 255, 0.8);
+  --band-decor: rgba(255, 255, 255, 0.22); /* white @ 22% — decorative lines/borders on the band */
+  --band-chip-bg: rgba(255, 255, 255, 0.08);
+  --band-chip-border: rgba(255, 255, 255, 0.18);
+
+  /* Sticky header stack — anything that sticks below the nav bar
+     (home.module.css's category toolbar, the subject page's
+     StickyTitleBar) must offset by --header-stack-height, not a hardcoded
+     68px, so it stays in sync if the nav's own height ever changes. */
+  --nav-height: 68px;
+  --header-stack-height: var(--nav-height);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0c1018; /* color-mix(navy 40%, black) */
+    --surface: #111822; /* color-mix(navy 58%, black) */
+    --surface-sunken: #0e141c; /* color-mix(navy 48%, black) */
+    --ink: #f5f4fc; /* near-white — was too dim/tinted (#cac8f7) to read comfortably on --paper */
+    --ink-soft: #c9c8e4; /* lightened alongside --ink so secondary text stays legible */
+    --ink-faint: #9b9ab8; /* lightened alongside --ink — this is what source/meta text uses, was the hardest to read */
+    --border: rgba(79, 70, 229, 0.2); /* violet @ 20% */
+    --border-strong: rgba(79, 70, 229, 0.34); /* violet @ 34% */
+    --heading: #9e99f1; /* color-mix(violet 55%, white) */
+
+    --accent: #6f67ea; /* color-mix(violet 82%, white) */
+    --accent-ink: #8d87ee; /* color-mix(violet 65%, white) */
+    --accent-soft: rgba(79, 70, 229, 0.18);
+
+    --pour: #74a9b2; /* color-mix(cyan 75%, white) */
+    --contre: #c96959; /* color-mix(tomato 80%, white) */
+    --contre-soft: rgba(187, 68, 48, 0.2);
+    --track: #2a2e38;
+
+    --cat-econ: #2563eb; /* Bleu Roi */
+    --cat-secu: #ea580c; /* Orange Vif */
+    --cat-just: #9c46b9; /* Mauve/Plum — desaturated from #c026d3 (Fuchsia), too vivid */
+    --cat-trav: #16a34a; /* Vert Tonique */
+    --cat-sante: #c84158; /* Rosé/Terracotta — desaturated from #e11d48 (Rouge Rosé), too vivid */
+    --cat-intl: #0284c7; /* Bleu Cyan */
+    --cat-edu: #ca8a04; /* Jaune Soleil */
+    --cat-eco: #0d9488; /* Turquoise / Menthe */
+    --cat-culture: #d97706; /* Ambre */
+    --cat-soc: #475569; /* Ardoise */
+
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 20px -12px rgba(0, 0, 0, 0.5);
+    --shadow-pop: 0 4px 10px rgba(0, 0, 0, 0.35), 0 16px 32px -16px rgba(0, 0, 0, 0.6);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* Safety net against any element blowing out the document's width (e.g. an
+     unclamped horizontal-scroll row) — a local overflow-x:auto container
+     still scrolls fine within itself, this only stops the whole PAGE from
+     scrolling sideways. `clip`, not `hidden` — `hidden` computes overflow-y
+     to `auto` on whichever axis is left `visible`, turning body into its
+     own scroll container and breaking every position: sticky element on
+     the page (this broke VoteCard's sticky bottom bar site-wide). `clip`
+     doesn't establish a scroll container, so sticky elements keep tracking
+     the real viewport. */
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul {
+  margin: 0;
+}
+
+/* h3 stays --ink (body color) on purpose — it's used for card/aside titles
+   at 15-17.5px, too small for --heading (pure accent indigo) to clear AA
+   contrast. Only h1/h2 (21px+) get it. */
+h1,
+h2 {
+  color: var(--heading);
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

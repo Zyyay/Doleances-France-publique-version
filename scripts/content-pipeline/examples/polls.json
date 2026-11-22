@@ -1,0 +1,21 @@
+{
+  "slug": "prisons-faut-il-construire-plus-de-places-et-faire-cesser-drogue-telephones-et-loisirs-non-autorises-en-detention",
+  "polls": [
+    {
+      "institute": "Ifop pour la Fondation Jean-Jaurès",
+      "conducted_on": "2018-03-27",
+      "question": "Les détenus ne devraient pas avoir accès au téléphone portable en prison",
+      "favorable_pct": 87,
+      "sample_size": 1013,
+      "source_url": "https://ifop.com/publication/les-francais-et-la-prison"
+    },
+    {
+      "institute": "CSA pour CNews, Europe 1 et le JDD",
+      "conducted_on": "2025-04-16",
+      "question": "Construire de nouvelles prisons en France",
+      "favorable_pct": 85,
+      "sample_size": 1002,
+      "source_url": "https://www.europe1.fr/Police-Justice/sondage-85-des-francais-sont-favorables-a-la-construction-de-nouvelles-prisons-en-france-681695"
+    }
+  ]
+}

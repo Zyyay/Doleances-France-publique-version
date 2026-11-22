@@ -1,0 +1,239 @@
+/* Normal (non-sticky) block at the end of the article, before the floating
+   vote buttons below — the actual Pour/Contre split, once unlocked. */
+.resultsSection {
+  padding-block: 8px 4px;
+}
+.resultsHeading {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+/* Floating over the page, not a bar — no background/border of its own, so
+   only the two circular buttons (and their labels) sit "on top of" the
+   content underneath. position: sticky (not fixed) so it docks above the
+   footer instead of floating over it once the page runs out of content
+   below it — see the .pageBody comment in subject.module.css. */
+.voteBar {
+  position: sticky;
+  bottom: 0;
+  z-index: 45;
+  display: flex;
+  justify-content: center;
+  padding-block: 18px;
+  pointer-events: none;
+}
+
+.voteButtons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 64px;
+  pointer-events: auto;
+}
+.voteOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.15s ease;
+}
+.voteBtn {
+  appearance: none;
+  cursor: pointer;
+  flex: none;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.voteBtnContre {
+  background: var(--surface);
+  border: 2px solid var(--contre);
+  color: var(--contre);
+}
+.voteBtnPour {
+  background: var(--pour);
+  border: 2px solid var(--pour);
+  color: var(--surface);
+}
+.voteBtn:hover {
+  filter: brightness(1.04);
+}
+.voteBtn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+/* Opaque + bordered + shadowed, not just a flat tint — needs to stay
+   legible over arbitrary page content now that there's no bar behind it. */
+.voteBtnLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+
+/* The voted-for option grows and gets a colored ring so it reads at a
+   glance as "this is your vote" — the other option is dimmed to push
+   attention toward it rather than presenting both as still-open choices. */
+.voteBtnSelected {
+  transform: scale(1.14);
+}
+.voteBtnSelected.voteBtnContre {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--contre) 22%, transparent), var(--shadow-card);
+}
+.voteBtnSelected.voteBtnPour {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--pour) 22%, transparent), var(--shadow-card);
+}
+.voteOptionDimmed {
+  opacity: 0.5;
+}
+.voteOptionDimmed .voteBtn:hover {
+  filter: none;
+}
+
+.popinOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(20, 17, 12, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  pointer-events: auto;
+}
+.popin {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-pop);
+  padding: 24px 22px 22px;
+}
+.popin h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding-right: 20px;
+}
+.popin p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.popinClose {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink-faint);
+}
+.popinClose:hover {
+  color: var(--ink);
+}
+.popinActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.popinBtn {
+  appearance: none;
+  cursor: pointer;
+  background: var(--surface);
+  flex: 1;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-strong);
+  color: var(--ink);
+  text-decoration: none;
+}
+.popinBtn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.popinBtn:hover {
+  background: var(--surface-sunken);
+}
+.popinBtnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+.popinBtnPrimary:hover {
+  background: var(--accent-ink);
+  border-color: var(--accent-ink);
+}
+
+.resultsLockedHint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+.resultsLockedHint svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
+
+.emptyResults {
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.compareBarWrap {
+  position: relative;
+}
+.divergingBar {
+  height: 9px;
+  border-radius: 100px;
+  overflow: hidden;
+  display: flex;
+}
+.divergingBar span {
+  height: 100%;
+}
+.resultLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 13px;
+  margin-bottom: 9px;
+}
+.resultLegend .item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+.resultLegend .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "prisons-faut-il-construire-plus-de-places-et-faire-cesser-drogue-telephones-et-loisirs-non-autorises-en-detention",
+  "positions": [
+    {
+      "position_date": "2009-11-24",
+      "title": "Le Parlement vote la loi pénitentiaire et accorde 5 ans pour garantir une cellule par détenu",
+      "description": "Objectif : placer chaque détenu seul en cellule d'ici fin 2014.\n\nConstat : l'échéance a été repoussée trois fois, jusqu'à fin 2027, et la part des détenus seuls en cellule est passée de 43 % en janvier 2022 à 34,9 % en octobre 2025.",
+      "stance": "for",
+      "source_url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000021312171"
+    },
+    {
+      "position_date": "2019-03-23",
+      "title": "Le Parlement interdit la prison d'un mois ou moins et impose l'aménagement jusqu'à six mois",
+      "description": "Objectif : limiter les courtes peines, jugées désocialisantes et inefficaces contre la récidive.\n\nConstat : de 2019 à 2024, les peines de moins de six mois sont passées de 86 564 à 67 702, et celles de six mois à un an de 27 786 à 41 947.",
+      "stance": "against",
+      "source_url": "https://www.justice.gouv.fr/actualites/actualite/loi-du-23-mars-2019-zoom-nouveau-droit-peines"
+    },
+    {
+      "position_date": "2025-06-13",
+      "title": "Le Parlement crée des quartiers de haute sécurité pour isoler les détenus du narcotrafic",
+      "description": "Objectif : couper les chefs de réseaux de l'extérieur par un isolement quasi total, des fouilles à nu et l'anonymat des surveillants.\n\nConstat : deux quartiers ont ouvert en 2025 et trois sont prévus en 2026, alors que la criminalité organisée représente 34,9 % des détenus.",
+      "stance": "for",
+      "source_url": "https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/proposition-de-loi-visant-a-sortir-la-france-du-piege-du-narcotrafic.html"
+    }
+  ]
+}

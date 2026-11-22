@@ -1,0 +1,45 @@
+.bar {
+  position: fixed;
+  top: var(--header-stack-height); /* beta banner + SiteNav's combined height (see globals.css) */
+  left: 0;
+  right: 0;
+  z-index: 39; /* just below SiteNav's 40 */
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-120%);
+  transition: transform 0.22s ease;
+  pointer-events: none;
+}
+.bar.visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 12px 28px;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    padding: 10px 18px;
+  }
+  .title {
+    font-size: 13.5px;
+  }
+}

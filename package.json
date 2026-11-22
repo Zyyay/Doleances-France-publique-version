@@ -1,0 +1,46 @@
+{
+  "name": "doleances",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "pipeline:insertSubject": "tsx scripts/content-pipeline/insertSubject.ts",
+    "pipeline:insertIdeas": "tsx scripts/content-pipeline/insertIdeas.ts",
+    "pipeline:insertArguments": "tsx scripts/content-pipeline/insertArguments.ts",
+    "pipeline:insertPolls": "tsx scripts/content-pipeline/insertPolls.ts",
+    "pipeline:insertDecisions": "tsx scripts/content-pipeline/insertDecisions.ts",
+    "pipeline:review": "tsx scripts/content-pipeline/review.ts",
+    "pipeline:approveAllPending": "tsx scripts/content-pipeline/approveAllPending.ts",
+    "pipeline:cleanupOrphanedSubjectRows": "tsx scripts/content-pipeline/cleanupOrphanedSubjectRows.ts"
+  },
+  "dependencies": {
+    "@marsidev/react-turnstile": "^1.6.1",
+    "@sentry/nextjs": "^10.71.0",
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.108.2",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.38.3",
+    "@vercel/analytics": "^2.0.1",
+    "disposable-email-domains": "^1.0.62",
+    "next": "16.2.9",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.0",
+    "typescript": "^5"
+  }
+}

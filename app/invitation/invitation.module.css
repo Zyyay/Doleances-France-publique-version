@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0 120px;
+  background: var(--band-bg);
+  min-height: calc(100vh - 300px);
+  display: flex;
+  align-items: center;
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-inline: 28px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--band-sub);
+  margin-bottom: 22px;
+}
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--band-eyebrow-bg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 1.14;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin-bottom: 20px;
+  color: var(--band-heading);
+}
+.sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--band-sub);
+  max-width: 60ch;
+  margin-bottom: 40px;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: min(320px, 100%);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 15px 30px;
+  border-radius: 100px;
+  text-decoration: none;
+  text-align: center;
+}
+.ctaPrimary {
+  background: var(--band-heading);
+  color: var(--pal-violet);
+}
+.ctaPrimary svg {
+  color: #facc15;
+}
+.ctaSecondary {
+  background: transparent;
+  color: var(--band-heading);
+  border: 1.5px solid var(--band-chip-border);
+}

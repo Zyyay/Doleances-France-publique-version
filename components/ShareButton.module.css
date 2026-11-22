@@ -1,0 +1,51 @@
+.confirmToast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: min(360px, calc(100vw - 32px));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-pop);
+  padding: 16px 18px;
+  animation: shareToastIn 0.22s ease-out;
+  pointer-events: none;
+}
+.confirmIcon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--pour) 14%, transparent);
+  color: var(--pour);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.confirmText strong {
+  display: block;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.confirmText p {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+@keyframes shareToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

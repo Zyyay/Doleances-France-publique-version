@@ -1,0 +1,74 @@
+.chartCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 16px 12px;
+  box-shadow: var(--shadow-card);
+  margin: 18px auto;
+  max-width: 520px;
+}
+
+.chartTitle {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.chartSubtitle {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  margin: 0 0 10px;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.interactiveGroup {
+  cursor: default;
+  outline: none;
+}
+
+.rowLabel {
+  font-size: 11px;
+  fill: var(--ink-soft);
+}
+
+.track {
+  fill: var(--surface-sunken);
+}
+
+.bar {
+  fill: var(--ink-faint);
+  transition: fill 0.12s ease;
+}
+.barHover {
+  fill: var(--ink-soft);
+}
+.barAccent {
+  fill: var(--cat-culture);
+}
+
+.valueLabel {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--ink);
+  font-variant-numeric: tabular-nums;
+  dominant-baseline: middle;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

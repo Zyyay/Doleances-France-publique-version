@@ -1,0 +1,22 @@
+{
+  "slug": "prisons-faut-il-construire-plus-de-places-et-faire-cesser-drogue-telephones-et-loisirs-non-autorises-en-detention",
+  "title": "Prisons : faut-il construire plus de places et faire cesser drogue, téléphones et loisirs non autorisés en détention ?",
+  "synthesis": "Au 1er septembre 2026 : **90 020 détenus** pour **63 348 places**, soit **142 %** d'occupation.\n\nAvec la surpopulation, **41 % des peines de prison ferme** sont aménagées avant incarcération : la peine prononcée n'est pas celle exécutée, d'où un sentiment d'impunité selon le Sénat.\n→ De 2005 à 2014, **88 000 personnes** ont eu **10 condamnations ou plus**.\nPromesse du gouvernement Philippe (2018), le plan 15 000 n'a livré que 5 531 places nettes en sept ans.\n\nEn détention :\n• **80 000 portables** saisis en 2024, autant que de détenus ;\n• **1 détenu sur 2** a fumé du cannabis en détention ;\n• **3 détenus par surveillant** (1,2 en Norvège) : les fouilles sont limitées.\n\nCe que veulent les Français pour les détenus (Ifop, 2018) :\n• oui aux livres (**93 %**), au sport (**77 %**) et à plus de réinsertion (**72 %**) ;\n• non au portable (**87 %**), à internet (**79 %**) et à la drogue (**96 %**).",
+  "category": "just",
+  "card_figure": "142 %",
+  "card_label": "d'occupation : 90 020 détenus pour 63 348 places",
+  "impacts": [
+    {
+      "title": "Détenus au 1er septembre 2026, pour 63 348 places",
+      "value": 90020,
+      "unit": "personnes",
+      "is_headline": true
+    },
+    {
+      "title": "Budget 2026 de l'administration pénitentiaire",
+      "value": 5500000000,
+      "unit": "€",
+      "is_headline": false
+    }
+  ]
+}

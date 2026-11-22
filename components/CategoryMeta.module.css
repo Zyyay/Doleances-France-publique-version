@@ -1,0 +1,27 @@
+/* Sits to the right of "Les plus populaires" once a category is selected —
+   see .boardMeta's justify-content: space-between in home.module.css. */
+.row {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.label {
+  max-width: 220px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+/* Sits to the right of the category CTA pill(s) on subject pages, in the
+   same row — see .categoryRow in subject.module.css. On the color-block
+   hero band, so it uses that band's light text tones rather than the
+   page's neutral ink. */
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15.5px;
+  color: var(--band-sub);
+}

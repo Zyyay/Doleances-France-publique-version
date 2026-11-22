@@ -1,0 +1,457 @@
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 28px;
+}
+
+/* Everything above the footer — VoteCard's bottom bar is position: sticky
+   (see VoteCard.module.css), which sticks to the viewport bottom while
+   scrolling through this container but naturally lets go once this
+   container's own bottom edge (i.e. the bar itself, its last child) is
+   reached, so the footer that follows in the DOM is never covered by it. */
+.pageBody {
+  position: relative;
+}
+
+/* Solid color-block band, same tokens as the homepage hero — see
+   globals.css --band-* and DESIGN.md's color palette update. The band itself
+   (background) stays full-width; its content fills .wrap's 1180px band
+   (see .main below), same as the homepage hero. */
+.hero {
+  padding: 32px 0 50px;
+  background: var(--band-bg);
+}
+.heroInner {
+  /* No width cap of its own — fills .wrap, same reading column as .main
+     below (see VoteCard, which shares this class for its own alignment). */
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 50px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin: 16px 0 14px;
+  color: var(--band-heading);
+}
+.categoryRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Single column now — voting and its results both live in VoteCard's fixed
+   bottom bar (see VoteCard.module.css), so there's no sidebar to reserve
+   space for here. */
+.layout {
+  /* padding-block, not the padding shorthand — this class is combined with
+     .wrap on the same element, and a shorthand here would zero out .wrap's
+     padding-inline (it cascades later, same specificity), pulling the body
+     content flush to the viewport edge instead of matching the hero. */
+  padding-block: 44px 24px;
+}
+/* Fills .wrap's 1180px band (no inner cap) — matches .heroInner above so
+   the title, description and everything below it (the decisions timeline,
+   polls, ideas) share one width instead of sitting in a narrower column
+   with dead space on either side. */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  min-width: 0;
+}
+
+.sectionHead h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+/* Left accent bar + icon badge, both tinted with the subject's category
+   color (--section-accent, set inline per section) — a consistent visual
+   marker so "Synthèse", "Décisions gouvernementales" and "État des lieux"
+   read as distinct zones instead of relying on whitespace alone. */
+.sectionAccent {
+  border-left: 3px solid var(--section-accent, var(--border-strong));
+  padding-left: 20px;
+}
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.sectionIcon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--section-accent, var(--accent)) 14%, transparent);
+  color: var(--section-accent, var(--accent));
+}
+.sectionIcon svg {
+  width: 17px;
+  height: 17px;
+}
+/* Tinted panel around the more data-dense blocks (poll list, idea/argument
+   cards) so they read visually distinct from the plain narrative text in
+   Synthèse/Décisions gouvernementales above. */
+.dataPanel {
+  background: var(--surface-sunken);
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+.subBlock {
+  margin-top: 16px;
+}
+.subBlock + .subBlock {
+  margin-top: 36px;
+  padding-top: 8px;
+}
+.subHeading {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin-bottom: 10px;
+}
+
+.synthBody {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 72ch;
+  margin-inline: auto;
+  white-space: pre-line;
+}
+.emptyNote {
+  font-size: 14px;
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.ideaBlock + .ideaBlock {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+.ideaHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.ideaTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.ideaIcon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: var(--timeline-color, var(--accent));
+}
+.ideaIcon svg {
+  width: 100%;
+  height: 100%;
+}
+.argList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.argCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 22px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  box-shadow: var(--shadow-card);
+}
+.argDescription {
+  white-space: pre-line;
+}
+.argLimitList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+.argLimitItem {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.argLimitTag {
+  flex: none;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--contre);
+  background: var(--contre-soft);
+  padding: 2px 7px;
+  border-radius: 100px;
+}
+.argSource {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+.argSource svg {
+  width: 12px;
+  height: 12px;
+}
+.argSource:hover {
+  color: var(--accent-ink);
+}
+
+.pollList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+}
+.pollRow {
+  display: grid;
+  grid-template-columns: 52px 72px minmax(0, 1fr) 92px;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.pollRow:last-child {
+  border-bottom: none;
+}
+.pollYear {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.pollInstitute {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pollQuestion {
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.45;
+}
+.pollQuestion:hover {
+  color: var(--accent-ink);
+  text-decoration: underline;
+}
+.pollQuestionIcon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  vertical-align: text-bottom;
+  color: var(--ink-faint);
+  flex: none;
+}
+.pollQuestionIcon svg {
+  width: 100%;
+  height: 100%;
+}
+.pollQuestion:hover .pollQuestionIcon {
+  color: var(--accent-ink);
+}
+/* The bare "% favorable" figure read as ambiguous on its own (81% of what?
+   answering how?). "Favorable", not "Oui" — deliberately, since polls.
+   favorable_pct backs both closed yes/no questions AND agree/disagree
+   statements ("L'insécurité a progressé...") and even a non-binary one
+   ("bonne ou mauvaise chose ?") — "Favorable" is the one word that stays
+   accurate across all of them; "Oui" would be flatly wrong for roughly
+   half. */
+.pollAnswer {
+  /* align-self overrides .pollRow's align-items: baseline for this cell only
+     — a 2-line flex-column child's baseline is computed inconsistently
+     across browsers (can place the whole box above the row, hiding the
+     "Favorable" line entirely). Centering sidesteps that. */
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+.pollAnswerLabel {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.pollPct {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .pollRow {
+    grid-template-columns: 40px minmax(0, 1fr) 80px;
+    gap: 10px;
+  }
+  .pollInstitute {
+    display: none;
+  }
+  .pollAnswerLabel {
+    font-size: 9.5px;
+  }
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+@media (min-width: 901px) {
+  /* Capped and centered like .synthBody above it. */
+  .timeline {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+}
+.timelineItem {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow-card);
+}
+.timelineHead {
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.timelineHead:hover .timelineTitle {
+  color: var(--timeline-color, var(--accent-ink));
+}
+.timelineHeadText {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+}
+.timelineChevron {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--timeline-color, var(--accent)) 10%, transparent);
+  color: var(--timeline-color, var(--accent));
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.timelineChevronOpen {
+  transform: rotate(180deg);
+}
+.timelineYear {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--timeline-color, var(--accent));
+  font-variant-numeric: tabular-nums;
+}
+.timelineTitle {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  margin-top: 4px;
+}
+.timelineBody {
+  animation: timelineBodyIn 0.15s ease;
+}
+@keyframes timelineBodyIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.timelineDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 6px 0 10px;
+}
+.timelineDescRow {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.timelineDescLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-right: 4px;
+  font-weight: 700;
+  color: var(--timeline-color, var(--accent));
+}
+.timelineDescLabel svg {
+  width: 13px;
+  height: 13px;
+  flex: none;
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    padding-inline: 18px;
+  }
+  .layout {
+    padding-top: 30px;
+  }
+  .sectionAccent {
+    padding-left: 14px;
+  }
+  .dataPanel {
+    padding: 16px;
+  }
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

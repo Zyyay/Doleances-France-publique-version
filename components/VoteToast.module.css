@@ -1,0 +1,84 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(20, 17, 12, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.toast {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1.5px solid var(--pour);
+  border-radius: 18px;
+  box-shadow: var(--shadow-pop);
+  padding: 30px 26px;
+  animation: toastIn 0.2s ease-out;
+}
+.toast strong {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+.toast p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.pctLine {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.pctLine strong {
+  font-size: inherit;
+  margin-bottom: 0;
+}
+.feedbackTrigger {
+  display: block;
+  margin-top: 12px;
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.feedbackTrigger:hover {
+  color: var(--ink-soft);
+}
+.close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink-faint);
+}
+.close:hover {
+  color: var(--ink);
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

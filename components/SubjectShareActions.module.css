@@ -1,0 +1,114 @@
+/* Pitch → arrow → share targets, read left to right as the vote's natural next step. */
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--surface-sunken);
+}
+
+.pitch {
+  margin: 0;
+  max-width: 150px;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  text-align: left;
+}
+
+.arrow {
+  flex: none;
+  width: 28px;
+  height: 19px;
+  stroke: var(--accent);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.targets {
+  display: flex;
+  gap: 14px;
+}
+
+.target {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font: inherit;
+}
+
+.disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  transition: transform 0.15s ease;
+}
+.target:hover .disc {
+  transform: scale(1.07);
+}
+.disc svg {
+  width: 22px;
+  height: 22px;
+}
+
+.whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+.x {
+  /* X's mark is black on light, white on dark — --ink/--surface flip with the theme. */
+  background: var(--ink);
+  color: var(--surface);
+}
+.x svg {
+  width: 19px;
+  height: 19px;
+}
+.neutral {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+.accent {
+  background: var(--accent);
+  color: var(--surface);
+}
+
+.caption {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* Narrow screens: pitch on its own line above the targets, the arrow pointing down at them. */
+@media (max-width: 420px) {
+  .panel {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+  .pitch {
+    max-width: none;
+    text-align: center;
+  }
+  .arrow {
+    transform: rotate(90deg);
+    width: 22px;
+    height: 15px;
+  }
+}
